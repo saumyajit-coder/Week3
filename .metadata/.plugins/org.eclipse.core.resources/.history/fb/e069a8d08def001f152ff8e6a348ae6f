@@ -1,0 +1,39 @@
+package com.spr1;
+
+import org.springframework.jdbc.core.*;
+import com.spr1.Student;
+import org.springframework.dao.*;
+import java.sql.*;
+
+public class StudentDAO {
+	
+	public class StudentDAOC {
+		JdbcTemplate jdbcTemplate;
+		public void setJdbcTemplate(JdbcTemplate jdbcTemplate) 
+		{
+			this.jdbcTemplate=jdbcTemplate;
+		}
+		public int save(Student s)
+		{
+			String qry="insert into Course values("+s.getCid()+ ",'"+ s.getCname() +"', '"+ s.getDuration()+ "')";
+			return jdbcTemplate.update(qry);
+		}
+		public Boolean savePS(Student s)
+		{
+			String qry="insert into Course values(?,?,?)";
+			return jdbcTemplate.execute(qry,new PreparedStatementCallback<Boolean>()
+					{
+				@Override
+				public Boolean doInPreparedStatement(PreparedStatement ps)
+					throws SQLException, DataAccessException
+				{
+					ps.setInt(1,s.getCid());
+					ps.setString(2,s.getCname());
+					ps.setString(3,s.getDuration());
+					return ps.execute();			
+				}
+					});
+		}
+	}
+
+}

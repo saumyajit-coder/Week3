@@ -1,0 +1,22 @@
+package com.spr1;
+
+import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.xml.*;
+import org.springframework.core.io.*;
+
+import com.spr1.Student;
+import com.spr1.StudentDAO;
+import com.spr1.Empp;
+import com.spr1.EmppDAO;
+
+import org.springframework.context.*;
+import org.springframework.context.support.*;
+
+public class Test1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

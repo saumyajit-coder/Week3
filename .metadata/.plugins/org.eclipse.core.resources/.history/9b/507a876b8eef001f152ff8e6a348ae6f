@@ -1,0 +1,12 @@
+package com.spr1;
+
+import org.springframework.jdbc.core.*;
+import com.spr1.Empp;
+import org.springframework.dao.*;
+import java.sql.*;
+
+public class EmppDAO {
+	
+	
+
+}
